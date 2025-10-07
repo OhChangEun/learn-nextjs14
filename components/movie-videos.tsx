@@ -2,6 +2,8 @@ import { API_URL } from "../app/(home)/page";
 
 async function getVideos(id: String) {
   console.log(`Fetching videos: ${Date.now()}`);
+  // throw new Error("something new error"); // 의도적으로 에러 발생
+
   //await new Promise((resolve) => setTimeout(resolve, 10000));
   const response = await fetch(`${API_URL}/${id}/videos`, {
     cache: "force-cache",
