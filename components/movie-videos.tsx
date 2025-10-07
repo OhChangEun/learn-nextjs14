@@ -1,8 +1,8 @@
-import { API_URL } from "../app/(home)/page";
+import { API_URL } from "../constants";
 import styles from "../styles/movie-videos.module.css";
 
 async function getVideos(id: String) {
-  console.log(id);
+  console.log("api 호출 몇번할까요?");
   console.log(`Fetching videos: ${Date.now()}`);
   // throw new Error("something new error"); // 의도적으로 에러 발생
 
@@ -17,7 +17,6 @@ async function getVideos(id: String) {
 // 비디오만 렌더링하는 컴포넌트
 export default async function MovieVideos({ id }: { id: string }) {
   const videos = await getVideos(id);
-  console.log(videos);
   return (
     <div className={styles.container}>
       {videos.map((video) => (

@@ -1,13 +1,20 @@
 import { Suspense } from "react";
-import MovieInfo from "../../../../components/movie-info";
+import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
 
-type Props = {
+interface IParams {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
+}
 
-export default async function MovieDetail({ params }: Props) {
+export async function generateMetadata({ params }: IParams) {
+  const { id } = await params;
+  const movie = await getMovie(id);
+  return {
+    title: movie.title,
+  };
+}
+
+export default async function MovieDetailPage({ params }: IParams) {
   const { id } = await params;
 
   return (
