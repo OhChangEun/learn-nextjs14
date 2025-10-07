@@ -2,8 +2,7 @@ import { API_URL } from "../constants";
 import styles from "../styles/movie-videos.module.css";
 
 async function getVideos(id: String) {
-  console.log("api 호출 몇번할까요?");
-  console.log(`Fetching videos: ${Date.now()}`);
+  // console.log(`Fetching videos: ${Date.now()}`);
   // throw new Error("something new error"); // 의도적으로 에러 발생
 
   //await new Promise((resolve) => setTimeout(resolve, 10000));
